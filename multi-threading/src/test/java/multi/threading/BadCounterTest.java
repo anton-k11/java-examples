@@ -9,7 +9,7 @@ class BadCounterTest {
   @Test
   void sumUpTo150() {
     BadCounter badCounter = new BadCounter();
-    badCounter.sumUpTo150();
-    assertEquals(150, badCounter.getCounter());
+    badCounter.runCalculationsInParallel();
+    assertEquals(750, badCounter.getCounter());
   }
 }
