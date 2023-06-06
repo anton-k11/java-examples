@@ -5,6 +5,8 @@ package multi.threading;
 
 import lombok.SneakyThrows;
 
+import java.util.ArrayList;
+
 public class BadCounter {
 
   private int counter = 0;
@@ -26,10 +28,13 @@ public class BadCounter {
   @SneakyThrows
   public void runCalculationsInParallel() {
 
+    ArrayList<Thread> threadList = new ArrayList<>(150);
     for (int j = 0; j < 150; j++) {
       Thread t = new Thread(this.runnable);
       t.setName("T " + j);
-      t.start();
+      threadList.add(t);
     }
+
+    threadList.forEach(Thread::start);
   }
 }
