@@ -17,16 +17,20 @@ repositories {
 }
 
 dependencies {
+    compileOnly "org.projectlombok:lombok:${lombokVersion}"
+    annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+    testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
-    // This dependency is used by the application.
-    implementation 'com.google.guava:guava:30.1.1-jre'
 }
 
 application {
     // Define the main class for the application.
-    mainClass = 'java.examples.gc.App'
+    mainClass = 'examples.gc.App'
+    applicationDefaultJvmArgs = ['-Xlog:gc* -Xmx512M']
 }
 
 tasks.named('test') {
