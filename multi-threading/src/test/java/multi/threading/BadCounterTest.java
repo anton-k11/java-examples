@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class BadCounterTest {
 
   @Test
-  void sumUpTo150() {
+  void checkSumTest() {
     BadCounter badCounter = new BadCounter();
     badCounter.runCalculationsInParallel();
     assertEquals(750, badCounter.getCounter());
